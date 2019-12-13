@@ -97,7 +97,7 @@ class Copier extends SimpleFileVisitor<Path> {
 }
 
 project.modules.each {
-    def base = project.basedir.toPath()
+    def base = new File(project.basedir).toPath()
     def workdir = new File(project.build.directory).toPath().resolve('bundles_workdir')
     if (!Files.isDirectory(workdir)) {
         Files.createDirectories(workdir)
